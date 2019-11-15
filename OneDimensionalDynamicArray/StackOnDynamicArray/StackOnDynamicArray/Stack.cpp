@@ -45,7 +45,7 @@ void Stack::pop()
 char Stack::top()
 {
 	if (!this->arr || !(this->arrSize > 0))
-		return;
+		return '-1';
 
 	return this->arr[this->arrSize - 1];
 }
