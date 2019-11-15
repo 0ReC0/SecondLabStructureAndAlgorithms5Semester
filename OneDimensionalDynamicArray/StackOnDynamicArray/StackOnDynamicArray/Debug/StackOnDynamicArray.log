@@ -1,0 +1,4 @@
+﻿  Calculator.cpp
+D:\Kitanin S.S\Структура и Алгоритмы ОД\Projects\SecondLabStructureAndAlgorithms5Semester\OneDimensionalDynamicArray\StackOnDynamicArray\StackOnDynamicArray\Calculator.cpp(18,21): warning C4018: '<': signed/unsigned mismatch
+D:\Kitanin S.S\Структура и Алгоритмы ОД\Projects\SecondLabStructureAndAlgorithms5Semester\OneDimensionalDynamicArray\StackOnDynamicArray\StackOnDynamicArray\Calculator.cpp(25,15): warning C4018: '<': signed/unsigned mismatch
+  StackOnDynamicArray.vcxproj -> D:\Kitanin S.S\Структура и Алгоритмы ОД\Projects\SecondLabStructureAndAlgorithms5Semester\OneDimensionalDynamicArray\StackOnDynamicArray\Debug\StackOnDynamicArray.exe
