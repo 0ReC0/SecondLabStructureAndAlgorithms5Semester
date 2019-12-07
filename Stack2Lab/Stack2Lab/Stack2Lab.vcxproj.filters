@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Stack">
+      <UniqueIdentifier>{3875c97a-a877-4d23-966f-a82954c6523e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Stack\DynamicArray">
+      <UniqueIdentifier>{6c4096c9-1002-492d-a1f1-792dfb256626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Stack\OneWayList">
+      <UniqueIdentifier>{9705e884-c0ae-469c-924d-e658aed9ab96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stack">
+      <UniqueIdentifier>{8dbe5646-8d57-457a-a4ed-1e015e0eb5e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stack\DynamicArray">
+      <UniqueIdentifier>{69c6bf0b-ff01-4766-838e-5de27091df93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Stack\OneWayList">
+      <UniqueIdentifier>{0cca1b87-8a7f-4410-83e0-94e33af8bb99}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Stack2Lab.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Calculator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StackOnDynamicArray.cpp">
+      <Filter>Source Files\Stack\DynamicArray</Filter>
+    </ClCompile>
+    <ClCompile Include="StackOnOneWayList.cpp">
+      <Filter>Source Files\Stack\OneWayList</Filter>
+    </ClCompile>
+    <ClCompile Include="ListNode.cpp">
+      <Filter>Source Files\Stack\OneWayList</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Calculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StackOnDynamicArray.h">
+      <Filter>Header Files\Stack\DynamicArray</Filter>
+    </ClInclude>
+    <ClInclude Include="ListNode.h">
+      <Filter>Header Files\Stack\OneWayList</Filter>
+    </ClInclude>
+    <ClInclude Include="StackOnOneWayList.h">
+      <Filter>Header Files\Stack\OneWayList</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Header Files\Stack</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

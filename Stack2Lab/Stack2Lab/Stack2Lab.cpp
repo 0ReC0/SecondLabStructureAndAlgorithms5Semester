@@ -1,20 +1,42 @@
-﻿// StackOnDynamicArray.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿// Stack2Lab.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
 #include "Calculator.h"
+#include "StackOnDynamicArray.h"
+#include "StackOnOneWayList.h"
 
 using namespace std;
 
 int main()
 {
-	string num;
-	cin >> num;
-
+	string expr;
+	char select{};
 	Calculator* calc = new Calculator();
 
-	calc->calulateExpression(num);
-
+	while (select != '0')
+	{
+		cout << "\nEnter expression: ";
+		cin >> expr;
+		cout << "Select environment (1 --> OneWayList, 2 --> DynamicArray, 3 --> std::stack or 0 --> exit): ";
+		cin >> select;
+		if (select == '1')
+		{
+			calc->calulateExpression<StackOnOneWayList>(expr);
+		}
+		else if (select == '2') {
+			calc->calulateExpression<StackOnDynamicArray>(expr);
+		}
+		else if (select == '3') {
+			calc->calulateExpressionByUsingSTLStack(expr);
+		}
+		else if (select == '0') {
+			break;
+		}
+		else {
+			cout << "Error while selecting method \n";
+		}
+	}
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

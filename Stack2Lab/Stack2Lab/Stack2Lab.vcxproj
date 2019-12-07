@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{4FEF6E6D-02C5-4746-84FD-8BC33B84EC05}</ProjectGuid>
+    <ProjectGuid>{0C03C958-3A22-4A1A-9A30-F206C6F0ABCC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>StackOnDynamicArray</RootNamespace>
+    <RootNamespace>Stack2Lab</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -152,12 +152,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Calculator.cpp" />
-    <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="ListNode.cpp" />
+    <ClCompile Include="Stack2Lab.cpp" />
     <ClCompile Include="StackOnDynamicArray.cpp" />
+    <ClCompile Include="StackOnOneWayList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Calculator.h" />
+    <ClInclude Include="ListNode.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="StackOnDynamicArray.h" />
+    <ClInclude Include="StackOnOneWayList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
