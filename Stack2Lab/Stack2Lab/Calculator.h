@@ -19,24 +19,24 @@ public:
 	template<typename TemplateStack>
 	int calulateExpression(string expr)
 	{
-		TemplateStack* stack = new TemplateStack();
+		TemplateStack* st = new TemplateStack();
 		char result{};
 		try
 		{
 			for (int i = expr.length() - 1; i >= 0; i--)
 			{
 
-				stack->push(expr.at(i));
+				st->push(expr.at(i));
 
 			}
 
-			while (stack->arrSize > 0) {
+			while (st->size() > 0) {
 
-				if (stack->arrSize == 1) {
-					if (stack->top() == '0' || stack->top() == '1') {
-						result = stack->top();
+				if (st->size() == 1) {
+					if (st->top() == '0' || st->top() == '1') {
+						result = st->top();
 
-						stack->pop();
+						st->pop();
 						break;
 					}
 					else {
@@ -44,47 +44,49 @@ public:
 					}
 				}
 
-				switch (stack->top())
+				switch (st->top())
 				{
 				case '!':
 
-					stack->pop();
+					st->pop();
 
-					if (stack->top() == '1') {
-						stack->pop();
+					if (st->top() == '1') {
+						st->pop();
 
-						stack->push('0');
+						st->push('0');
 					}
-					else if (stack->top() == '0') {
-						stack->pop();
+					else if (st->top() == '0') {
+						st->pop();
 
-						stack->push('1');
+						st->push('1');
 					}
 					else {
 						throw - 2;
 					}
 					break;
 				case '0':
-					stack->pop();
+					st->pop();
 
-					if (this->calculateZeroAND<TemplateStack>(stack) == 1) {
+					if (this->calculateZeroAND<TemplateStack>(st) == 1) {
 						continue;
 					}
 
-					if (this->calculateZeroOR<TemplateStack>(stack) == 1) {
+					if (this->calculateZeroOR<TemplateStack>(st) == 1) {
 						continue;
 					}
+
 					break;
 				case '1':
-					stack->pop();
+					st->pop();
 
-					if (this->calculateOneAND<TemplateStack>(stack) == 1) {
+					if (this->calculateOneAND<TemplateStack>(st) == 1) {
 						continue;
 					}
 
-					if (this->calculateOneOR<TemplateStack>(stack) == 1) {
+					if (this->calculateOneOR<TemplateStack>(st) == 1) {
 						continue;
 					}
+
 					break;
 				default:
 					throw - 1;
@@ -92,7 +94,7 @@ public:
 				}
 
 			}
-			cout << "Result by using " << typeid(TemplateStack).name() << ": " << result << endl;
+			cout << "Result by using "<<typeid(TemplateStack).name()  <<" "<<result << endl;
 
 			return 0;
 
@@ -105,42 +107,44 @@ public:
 		return -1;
 	}
 
-	int calulateExpressionByUsingSTLStack(string expr);
+	//int calulateExpressionByUsingSTLStack(string expr);
 
 private:
 	template<typename TemplateStack>
 	int calculateOneAND(TemplateStack* st) {
-		if (st->top() == '&') {
+		if (st->size() != 0 && st->top() == '&') {
 			st->pop();
 
-			if (st->top() == '0') {
+			if (st->size() != 0 && st->top() == '0') {
 				st->pop();
 
 				st->push('0');
 			}
-			else if (st->top() == '1') {
+			else if (st->size() != 0 && st->top() == '1') {
 				st->pop();
 
 				st->push('1');
 			}
-			else if (st->top() == '!') {
+			else if (st->size() != 0 && st->top() == '!') {
 				st->pop();
 
-				if (st->top() == '0') {
+				if (st->size() != 0 && st->top() == '0') {
 					st->pop();
 
 					st->push('1');
 				}
-				else if (st->top() == '1') {
+				else if (st->size() != 0 && st->top() == '1') {
 					st->pop();
 
 					st->push('0');
 				}
 				else {
+					if(st->size() != 1)
 					throw - 17;
 				}
 			}
 			else {
+				if (st->size() != 1)
 				throw - 9;
 			}
 			// return check code | 1 --> good
@@ -150,18 +154,18 @@ private:
 
 	template<typename TemplateStack>
 	int calculateZeroAND(TemplateStack* st) {
-		if (st->top() == '&') {
+		if (st->size() != 0 && st->top() == '&') {
 			st->pop();
 
-			if (st->top() == '0' || st->top() == '1') {
+			if (st->size() != 0 && st->top() == '0' || st->top() == '1') {
 				st->pop();
 
 				st->push('0');
 			}
-			else if (st->top() == '!') {
+			else if (st->size() != 0 && st->top() == '!') {
 				st->pop();
 
-				if (st->top() == '0' || st->top() == '1') {
+				if (st->size() != 0 && st->top() == '0' || st->top() == '1') {
 					st->pop();
 
 					st->push('0');
@@ -171,6 +175,7 @@ private:
 				}
 			}
 			else {
+				if (st->size() != 1)
 				throw - 12;
 			}
 			// return good code
@@ -180,13 +185,13 @@ private:
 
 	template<typename TemplateStack>
 	int calculateZeroOR(TemplateStack* st) {
-		if (st->top() == '|') {
+		if (st->size() != 0 && st->top() == '|') {
 			st->pop();
 
-			if (st->top() == '0') {
+			if (st->size() != 0 && st->top() == '0') {
 				st->pop();
 
-				if (st->top() == '|') {
+				if (st->size() != 0 && st->top() == '|') {
 					st->push('0');
 				}
 				else if (st->top() == '&') {
@@ -196,35 +201,47 @@ private:
 					}
 				}
 				else {
-					throw - 22;
+					if (st->size() == 0) {
+						st->push('0');
+						return 1;
+					}
+					else {
+						throw - 22;
+					}
 				}
 
 			}
-			else if (st->top() == '1') {
+			else if (st->size() != 0 && st->top() == '1') {
 				st->pop();
 
-				if (st->top() == '|') {
+				if (st->size() != 0 && st->top() == '|') {
 					st->push('1');
 				}
-				else if (st->top() == '&') {
+				else if (st->size() != 0 && st->top() == '&') {
 
 					if (this->calculateOneAND<TemplateStack>(st) == 1) {
 						return 1;
 					}
 				}
 				else {
-					throw - 22;
+					if (st->size() == 0) {
+						st->push('1');
+						return 1;
+					}
+					else {
+						throw - 27;
+					}
 				}
 			}
-			else if (st->top() == '!') {
+			else if (st->size() != 0 && st->top() == '!') {
 				st->pop();
 
-				if (st->top() == '0') {
+				if (st->size() != 0 && st->top() == '0') {
 					st->pop();
 
 					st->push('1');
 				}
-				else if (st->top() == '1') {
+				else if (st->size() != 0 && st->top() == '1') {
 					st->pop();
 
 					st->push('0');
@@ -246,29 +263,35 @@ private:
 
 	template<typename TemplateStack>
 	int calculateOneOR(TemplateStack* st) {
-		if (st->top() == '|') {
+		if (st->size() != 0 && st->top() == '|') {
 			st->pop();
 
-			if (st->top() == '0' || st->top() == '1') {
+			if (st->size() != 0 && st->top() == '0' || st->top() == '1') {
 				st->pop();
 
-				if (st->top() == '|') {
+				if (st->size() != 0 && st->top() == '|') {
 					st->push('1');
 				}
-				else if (st->top() == '&') {
+				else if (st->size() != 0 && st->top() == '&') {
 
 					if (this->calculateOneAND<TemplateStack>(st) == 1) {
 						return 1;
 					}
 				}
 				else {
-					throw - 22;
+					if (st->size() == 0) {
+						st->push('1');
+						return 1;
+					}
+					else {
+						throw - 29;
+					}
 				}
 			}
-			else if (st->top() == '!') {
+			else if (st->size() != 0 && st->top() == '!') {
 				st->pop();
 
-				if (st->top() == '0' || st->top() == '1') {
+				if (st->size() != 0 && st->top() == '0' || st->top() == '1') {
 					st->pop();
 
 					st->push('1');

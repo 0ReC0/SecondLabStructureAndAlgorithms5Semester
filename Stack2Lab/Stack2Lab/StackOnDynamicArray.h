@@ -18,6 +18,8 @@ public:
 
 	virtual char top() override;
 
+	int size() override;
+
 private:
 	char* arr;
 

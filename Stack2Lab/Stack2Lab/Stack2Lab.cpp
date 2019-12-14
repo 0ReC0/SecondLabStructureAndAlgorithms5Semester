@@ -5,6 +5,7 @@
 #include "Calculator.h"
 #include "StackOnDynamicArray.h"
 #include "StackOnOneWayList.h"
+#include <stack>
 
 using namespace std;
 
@@ -28,7 +29,8 @@ int main()
 			calc->calulateExpression<StackOnDynamicArray>(expr);
 		}
 		else if (select == '3') {
-			calc->calulateExpressionByUsingSTLStack(expr);
+			//calc->calulateExpressionByUsingSTLStack(expr);
+			calc->calulateExpression<stack<char>>(expr);
 		}
 		else if (select == '0') {
 			break;

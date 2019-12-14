@@ -66,4 +66,8 @@ char StackOnDynamicArray::top()
 
 	return this->arr[this->arrSize - 1];
 }
+int StackOnDynamicArray::size()
+{
+	return arrSize;
+}
 StackOnDynamicArray::~StackOnDynamicArray() {}

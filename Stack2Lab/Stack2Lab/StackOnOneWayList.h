@@ -17,6 +17,8 @@ public:
 
 	char top() override;
 
+	int size() override;
+
 private:
 	ListNode* head;
 

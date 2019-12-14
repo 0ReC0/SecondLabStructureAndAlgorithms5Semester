@@ -78,3 +78,8 @@ char StackOnOneWayList::top()
 
 	return iterator->data;
 }
+
+int StackOnOneWayList::size()
+{
+	return arrSize;
+}

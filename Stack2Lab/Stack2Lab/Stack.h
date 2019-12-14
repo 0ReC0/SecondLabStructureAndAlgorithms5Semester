@@ -10,6 +10,8 @@ public:
 
 	virtual char top() = 0;
 
+	virtual int size() = 0;
+
 	int arrSize;
 };
 
